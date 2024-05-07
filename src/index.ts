@@ -7,8 +7,12 @@ async function run() {
     const outputFile = core.getInput('output-file');
 
     const inputContent = fs.readFileSync(inputFile, 'utf-8');
+    
+    core.info(`read input file ${inputFile}`);
 
     const outputContent = parse(inputContent);
+
+    core.info(`writing output to ${outputFile}`);
 
     fs.writeFileSync(outputFile, outputContent);
 }
